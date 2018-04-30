@@ -32,6 +32,8 @@ test_status = "good"
 try:
     driver = webdriver.Chrome()
 
+    #driver = webdriver.Firefox()
+
     driver.get("https://test.dontracker.navy.mil")
     driver.find_element_by_id("button-1005-btnIconEl").click()
     driver.implicitly_wait(5) #seconds
@@ -42,10 +44,12 @@ except:
 ##########################################################################################
 
 driver.find_element_by_id("HEADER_TASKS_text").click()
-driver.find_element_by_xpath("//a[contains(text(),'Inbox')]").click()
+driver.find_element_by_link_text("Inbox").click()
+#driver.find_element_by_xpath("xpath=(//a[contains(text(),'Inbox')])[2]").click()
 
 driver.implicitly_wait(6) #seconds
-driver.find_element_by_id("button-1033").click()
+#driver.find_element_by_id("button-1033").click()
+driver.find_element_by_xpath("//span[contains(text(),'New')]").click()
 
 # BELOW IS IMPORTANT
 driver.find_element_by_xpath("//span[contains(text(),'General')]").click()
@@ -82,7 +86,7 @@ except:
 ###                  SELECT SSIC                                  #################
 #driver.find_element_by_class_name("x-form-trigger-input-cell").click()
 
-driver.find_element_by_xpath("//table[17]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click()
+driver.find_element_by_xpath("//table[18]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click()
 #driver.find_element_by_id("trackerTextField-2447-inputEl").send_keys("Military")
 driver.find_element_by_xpath("//div[2]/div/div/div/div/div/div/table/tbody/tr/td[2]/input").send_keys("Military")
 #trackerTextField-2447-inputEl
@@ -98,7 +102,7 @@ driver.find_element_by_xpath("//span[contains(text(),'Accept')]").click()
 
 ###                  CLEAR AND SELECT VALID DATE                                  #################
 driver.find_element_by_name("dueDate").clear()
-driver.find_element_by_xpath("//table[14]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click()
+driver.find_element_by_xpath("//table[15]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click()
 driver.implicitly_wait(2) #seconds
 driver.find_element_by_xpath("//tr[2]/td[4]/a").click()
 
