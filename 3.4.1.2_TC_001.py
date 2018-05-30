@@ -34,6 +34,7 @@ test_status = "good"
 ########################## LOG INTO DON TRACKER #########################################
 try:
     driver = webdriver.Chrome()
+    #driver = webdriver.Firefox()
 
     #driver = webdriver.Firefox()
 
@@ -78,6 +79,6 @@ driver.implicitly_wait(10) #seconds
 
 #driver.find_element_by_xpath("//div[3]/div/div/div[2]/div/div").click()
 #element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID,"datecolumn-1015-triggerEl")))
-driver.find_element_by_id("datecolumn-1015-triggerEl").click()
-#driver.find_element_by_id("button-1020-btnInnerEl").click()
+#driver.find_element_by_id("datecolumn-1015-triggerEl").click()
+driver.find_element_by_id("button-1020-btnInnerEl").click()
 #driver.find_element_by_xpath("//div[4]/a/span").click()

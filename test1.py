@@ -28,11 +28,22 @@ import time
 
 driver_status = "good"
 test_status = "good"
-########################## LOG INTO DON TRACKER #########################################
-try:
-    driver = webdriver.Chrome()
 
-    #driver = webdriver.Firefox()
+########################## SETUP FIREFOX PROFILE ########################################
+
+abrahamAzam = webdriver.FirefoxProfile("C:/Users/jared/AppData/Roaming/Mozilla/Firefox/Profiles/4rv3vvf2.AbrahamAzam")
+
+abrahamAzam.set_preference("webdriver_accept_untrusted_certs", True)
+#driver = webdriver.Firefox(firefox_profile = abrahamAzam)
+driver = webdriver.Firefox(abrahamAzam)
+driver.get("https://test.dontracker.navy.mil")
+exit()
+
+########################## LOG INTO DON TRACKER #########################################
+
+try:
+    #driver = webdriver.Chrome()
+
 
     driver.get("https://test.dontracker.navy.mil")
     driver.find_element_by_id("button-1005-btnIconEl").click()
@@ -86,7 +97,7 @@ except:
 ###                  SELECT SSIC                                  #################
 #driver.find_element_by_class_name("x-form-trigger-input-cell").click()
 
-driver.find_element_by_xpath("//table[18]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click()
+#driver.find_element_by_xpath("//table[18]/tbody/tr/td[2]/table/tbody/tr/td[2]/div").click(www
 #driver.find_element_by_id("trackerTextField-2447-inputEl").send_keys("Military")
 driver.find_element_by_xpath("//div[2]/div/div/div/div/div/div/table/tbody/tr/td[2]/input").send_keys("Military")
 #trackerTextField-2447-inputEl
